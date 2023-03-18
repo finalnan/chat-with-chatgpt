@@ -1,8 +1,8 @@
 import axios from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
-import HttpsProxyAgent from "https-proxy-agent/dist/agent";
+// import HttpsProxyAgent from "https-proxy-agent/dist/agent";
 
-const httpsAgent = new HttpsProxyAgent(process.env.HTTP_PROXY!);
+// const httpsAgent = new HttpsProxyAgent(process.env.HTTP_PROXY!);
 
 export default async function handler(
   req: NextApiRequest,
@@ -20,8 +20,8 @@ export default async function handler(
           "Content-Type": "application/json",
           Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
         },
-        proxy: false,
-        httpsAgent: httpsAgent,
+        // proxy: false,
+        // httpsAgent: httpsAgent,
       });
 
       res.status(200).json(response.data);
